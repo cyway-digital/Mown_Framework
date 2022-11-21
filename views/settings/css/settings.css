@@ -1,0 +1,8 @@
+.bg-blocked {
+    background-color: rgb(242, 235, 219) !important;
+    color: #aeaeae
+}
+
+.bg-admin {
+    background-color: rgb(225, 242, 219) !important
+}
