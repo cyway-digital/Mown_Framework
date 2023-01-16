@@ -2,7 +2,7 @@
 
 /**
  * Mown Framework 3.0
- * Cyway Digital - 2022
+ * Cyway Digital - 2023
  *
  * @author M. Vulcano
  * @link https://cyway.it
