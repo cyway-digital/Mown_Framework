@@ -14,7 +14,7 @@ class Model {
     }
 
     public function refreshSession($userID) {
-        $sessData = $this->db->select("id, name, surname, username, email, role FROM users WHERE id = :id", array(':id' => $this->dbSafe($userID)), 'fetch');
+        $sessData = $this->db->select("id, name, surname, email, role FROM users WHERE id = :id", array(':id' => $this->dbSafe($userID)), 'fetch');
         //todo error handle here
         foreach ($sessData as $name => $value){
             Session::set($name, $value);
