@@ -42,7 +42,7 @@ class Session
     {
         //remove PHPSESSID from browser
         if ( isset( $_COOKIE['MOWNSID'] ) ) {
-            setcookie(session_name(), "", time() - 7200, " / ");
+            setcookie(session_name(), "", time() - 7200, "/");
         }
 
         //clear session from globals
