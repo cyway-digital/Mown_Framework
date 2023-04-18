@@ -181,8 +181,7 @@ class Controller {
     }
 
     protected function utf8ize($d) {
-
-        if (@mb_detect_encoding($d, 'UTF-8', true)) {
+        if (is_string($d) && @mb_detect_encoding($d, 'UTF-8', true)) {
             return $d;
         }
 
@@ -190,12 +189,12 @@ class Controller {
             foreach ($d as $k => $v) {
                 $d[$k] = $this->utf8ize($v);
             }
-        } else if (is_object($d)) {
+        } elseif (is_object($d)) {
             foreach ($d as $k => $v) {
                 $d->$k = $this->utf8ize($v);
             }
-        } else {
-            return utf8_encode($d);
+        } elseif (is_string($d)) {
+            return utf8_encode($d ?? '');
         }
         return $d;
     }
