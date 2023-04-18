@@ -62,7 +62,6 @@ class Log {
         $this->_logFiles = [
             'system' => LOG_FILE_SYSTEM,
             'db' => LOG_FILE_DB,
-            'refresher' => APP_PATH.'logs/refresher.log',
             'mail' => APP_PATH.'logs/mail.log'
         ];
     }

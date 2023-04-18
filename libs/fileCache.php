@@ -39,6 +39,9 @@ class fileCache
 
     function set($data,$filename,$time = CACHE_DEFAULT_TIME) {
         if (!file_exists($this->_cacheDir.$filename)) {
+            if (!is_dir($this->_cacheDir)) {
+                mkdir($this->_cacheDir);
+            }
             $fileo = fopen($this->_cacheDir . $filename, 'w');
             fclose($fileo);
         }
