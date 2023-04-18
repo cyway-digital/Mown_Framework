@@ -63,7 +63,7 @@ class Controller {
     }
 
     public function handleRequest($method, $fields = []) {
-        //TODO unset not present vars?
+        //TODO unset non requested values sent
 
         if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] !== strtoupper($method)) {
             $this->jsonOutputError('Method not allowed ('.$_SERVER['REQUEST_METHOD'].')',405);
@@ -71,11 +71,6 @@ class Controller {
 
         if (!is_array($fields)) {
             $this->jsonOutputError('Cannot validate POST fields. Send an array.',412);
-        }
-
-        // check token
-        if (!$this->checkToken()) {
-            $this->jsonOutputError('Wrong Mown Token',401);
         }
 
         $requestData = json_decode(file_get_contents('php://input'), true);
@@ -100,23 +95,20 @@ class Controller {
                 $filteredData = [];
 
                 foreach ($fields as $field => $type) {
+                    $flags = [];
                     switch ($type) {
                         case 'int':
                             $filter = FILTER_SANITIZE_NUMBER_INT;
-                            $flags=null;
                             break;
                         case 'float':
                             $filter = FILTER_SANITIZE_NUMBER_FLOAT;
-                            $flags=null;
                             break;
                         case 'string':
                         case 'string_e': // String that CAN be empty
-                            $filter = FILTER_SANITIZE_STRING;
-                            $flags=null;
+                            $filter = 'string'; // FILTER_SANITIZE_STRING is deprecated in PHP 8.1
                             break;
                         case 'html':
                             $filter = FILTER_UNSAFE_RAW; //TODO
-                            $flags = null;
                             break;
                         case 'json':
                             $filter = 'json';
@@ -127,15 +119,22 @@ class Controller {
 
                     if ($type === 'string_e') {
                         if (isset($requestData[$field])) {
-                            $filteredData[$field] = filter_var(trim($requestData[$field]),$filter,$flags);
+                            $filteredData[$field] = trim(htmlspecialchars($requestData[$field]));
                         } else {
                             $this->jsonOutputError('Cannot find all needed Request fields. ('.$field.',1)',412);
                         }
+                    } elseif ($type === 'string') {
+                        if (isset($requestData[$field]) && $requestData[$field] !== '') {
+                            $filteredData[$field] = trim(htmlspecialchars($requestData[$field]));
+                        } else {
+                            $this->jsonOutputError('Cannot find all needed Request fields. ('.$field.',2)',412);
+                        }
+
                     } elseif ($filter !== 'json') {
                         if (isset($requestData[$field]) && $requestData[$field] !== '') {
                             $filteredData[$field] = filter_var(trim($requestData[$field]),$filter,$flags);
                         } else {
-                            $this->jsonOutputError('Cannot find all needed Request fields. ('.$field.',2)',412);
+                            $this->jsonOutputError('Cannot find all needed Request fields. ('.$field.',3)',412);
                         }
                     } else {
                         if (is_array($requestData[$field])) {
@@ -148,12 +147,16 @@ class Controller {
                             }
                         }
                     }
+
+
                 }
 
                 return $filteredData;
             } else {
                 $this->jsonOutputError('Cannot find Request fields.',412);
             }
+//        } else {
+//            die();
         }
     }
 
