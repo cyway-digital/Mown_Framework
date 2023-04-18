@@ -1,4 +1,4 @@
 /conf/*
-/cache/
-/private/
-/logs/
+/cache/*
+/private/*
+/logs/*
