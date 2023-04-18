@@ -6,7 +6,6 @@ class Actions extends Controller
     function __construct()
     {
         parent::__construct();
-        Auth::externalVisitor();
     }
 
     function logout()
