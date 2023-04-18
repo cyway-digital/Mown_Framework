@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-light-success elevation-4">
     <a href="<?php echo URL;?>" class="brand-link bg-light text-sm">
         <img src="<?php echo URL.THEME_PATH.'assets/imgs/';?>logo_nav.png" alt="<?php echo SYS_NAME;?> Logo" class="brand-image" style="opacity: .8">
-        <span class="brand-text font-weight-light"><?php echo SYS_NAME;?></span>
+        <span class="brand-text font-weight-light"></span>
     </a>
 
     <div class="sidebar">
