@@ -17,7 +17,7 @@ require 'conf/mail.php';
 require 'libs/MownException.php';
 
 $permittedIPs = [
-    '94.36.192.133'
+    'xxx.xxx.xxx.xxx'
 ];
 
 // Handle Maintenance mode
