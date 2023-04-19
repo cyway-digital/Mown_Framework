@@ -43,7 +43,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?=URL?>demo" class="nav-link">
-                        <i class="fa-regular fa-face-laugh-beam"></i>
+                        <i class="nav-icon fa-regular fa-face-laugh-beam"></i>
                         <p>Demo</p>
                     </a>
                 </li>
