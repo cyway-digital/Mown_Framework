@@ -43,7 +43,7 @@
                                     </div>
 
                                     <div class="card-footer">
-                                        <button type="submit" v-show="!loading" @click="" class="btn btn-info">Fetch</button>
+                                        <a href="#!" v-show="!loading" @click="getRandomNumber()" class="btn btn-info">Fetch</a>
                                         <button type="submit" v-show="!loading" class="btn btn-danger float-right">Fetch With Error</button>
                                     </div>
 
