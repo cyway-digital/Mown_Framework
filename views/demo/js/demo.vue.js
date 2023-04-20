@@ -13,9 +13,10 @@ const ChildComponent = {
     methods: {
         getRandomNumber(err) {
             this.loading = true
+            this.randomNumber = false
 
             if (err) {
-                this.randomNumberFrom = null
+                this.randomNumberFrom = ''
             }
 
             let data = this.doRequest('GET', this.$parent.appUrl + this.controller + '/randomNumber/' + this.randomNumberFrom + '/' + this.randomNumberTo);
