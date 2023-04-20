@@ -24,7 +24,9 @@ const ChildComponent = {
                 console.log(a)
                 this.randomNumber = a.result
                 this.loading = false
-            }).catch(error => { })
+            }).catch(error => {
+                this.loading = false
+            })
         },
     },
 }
