@@ -11,14 +11,18 @@ const ChildComponent = {
         }
     },
     methods: {
-        getRandomNumber() {
+        getRandomNumber(err) {
             this.loading = true
+
+            if (err) {
+                this.randomNumberFrom = null
+            }
 
             let data = this.doRequest('GET', this.$parent.appUrl + this.controller + '/randomNumber/' + this.randomNumberFrom + '/' + this.randomNumberTo);
             data.then(a => {
+                console.log(a)
                 this.randomNumber = a.result
                 this.loading = false
-
             }).catch(error => { })
         },
     },

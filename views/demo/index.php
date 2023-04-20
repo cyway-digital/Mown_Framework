@@ -42,8 +42,8 @@
                                         </div>
                                     </div>
                                     <div class="card-footer">
-                                        <a href="#!" v-show="!loading" @click="getRandomNumber()" class="btn btn-info">Fetch</a>
-                                        <button type="submit" v-show="!loading" class="btn btn-danger float-right">Fetch With Error</button>
+                                        <a href="#!" v-show="!loading" @click="getRandomNumber(false)" class="btn btn-info">Fetch</a>
+                                        <a href="#!" v-show="!loading" @click="getRandomNumber(true)" class="btn btn-danger float-right">Fetch With Error</a>
                                         <div class="row" v-show="randomNumber">
                                             <div class="col-12">
                                                 Your random number is {{randomNumber}}! Try again?
