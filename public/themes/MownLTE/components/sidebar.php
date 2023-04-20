@@ -36,15 +36,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?=URL?>settings" class="nav-link">
-                        <i class="nav-icon fa-solid fa-gears"></i>
-                        <p>Settings</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="<?=URL?>demo" class="nav-link">
                         <i class="nav-icon fa-regular fa-face-laugh-beam"></i>
                         <p>Demo</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?=URL?>settings" class="nav-link">
+                        <i class="nav-icon fa-solid fa-gears"></i>
+                        <p>Settings</p>
                     </a>
                 </li>
             </ul>
