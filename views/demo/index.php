@@ -65,8 +65,8 @@
                                 <div class="overlay" v-show="loading"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
                                     <div class="text-bold pt-2"></div>
                                 </div>
-                                <div class="text-center" v-show="randomPerson">
-                                    <img class="profile-user-img img-fluid img-circle" :src="{{randomPerson.picture.medium}}" alt="User profile picture">
+                                <div class="text-center" v-if="randomPerson">
+                                    <img class="profile-user-img img-fluid img-circle" :src="randomPerson.picture.medium" alt="User profile picture">
                                 </div>
                                 <h3 class="profile-username text-center">{{randomPerson.name.title}} {{randomPerson.name.first}} {{randomPerson.name.last}}</h3>
                                 <p class="text-muted text-center">{{randomPerson.location.city}} ({{randomPerson.location.state}} - {{randomPerson.location.country}})</p>
