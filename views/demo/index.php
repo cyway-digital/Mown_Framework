@@ -68,8 +68,8 @@
                                 <div class="text-center" v-if="randomPerson">
                                     <img class="profile-user-img img-fluid img-circle" :src="randomPerson.picture.medium" alt="User profile picture">
                                 </div>
-                                <h3 class="profile-username text-center">{{randomPerson?.name.title}} {{randomPerson?.name.first}} {{randomPerson?.name.last}}</h3>
-                                <p class="text-muted text-center">{{randomPerson?.location.city}} ({{randomPerson?.location.state}} - {{randomPerson?.location.country}})</p>
+                                <h3 class="profile-username text-center">{{randomPerson?.name?.title}} {{randomPerson?.name?.first}} {{randomPerson?.name?.last}}</h3>
+                                <p class="text-muted text-center">{{randomPerson?.location?.city}} ({{randomPerson?.location?.state}} - {{randomPerson?.location?.country}})</p>
                                 <ul class="list-group list-group-unbordered mb-3">
                                     <li class="list-group-item">
                                         <b>E-mail</b> <a class="float-right">{{randomPerson?.email}}</a>
