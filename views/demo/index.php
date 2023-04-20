@@ -1,4 +1,4 @@
-    <div class="content-header">
+<div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
@@ -66,7 +66,7 @@
                                     <div class="text-bold pt-2"></div>
                                 </div>
                                 <div class="text-center" v-show="randomPerson">
-                                    <img class="profile-user-img img-fluid img-circle" :src="randomPerson.picture.medium" alt="User profile picture">
+                                    <img class="profile-user-img img-fluid img-circle" :src="{{randomPerson.picture.medium}}" alt="User profile picture">
                                 </div>
                                 <h3 class="profile-username text-center">{{randomPerson.name.title}} {{randomPerson.name.first}} {{randomPerson.name.last}}</h3>
                                 <p class="text-muted text-center">{{randomPerson.location.city}} ({{randomPerson.location.state}} - {{randomPerson.location.country}})</p>
@@ -81,7 +81,7 @@
                                         <b>Gender</b> <a class="float-right">{{randomPerson.gender}}</a>
                                     </li>
                                 </ul>
-                                <h2>Raw data:</h2>
+                                <h3>Raw data:</h3>
                                 <pre v-show="randomPerson">{{randomPerson}}</pre>
                             </div>
                         </div>
