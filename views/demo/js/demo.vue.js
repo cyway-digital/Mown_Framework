@@ -17,6 +17,8 @@ const ChildComponent = {
             let data = this.doRequest('GET', this.$parent.appUrl + this.controller + '/randomNumber/' + this.randomNumberFrom + '/' + this.randomNumberTo);
             data.then(a => {
                 this.randomNumber = a.result
+                this.loading = false
+
             }).catch(error => { })
         },
     },
