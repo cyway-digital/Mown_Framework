@@ -20,30 +20,35 @@
                 <div class="col-lg-6">
                     <div class="card card-success card-outline">
                         <div class="card-header">
-                            <h3 class="card-title">Fetch Some data</h3>
+                            <h3 class="card-title">Fetch Some external data</h3>
                         </div>
                         <div class="card-body">
-                            <form class="form-horizontal">
-                                <div class="card-body">
-                                    Get a random rumber between an interval
-                                    <div class="form-group row">
-                                        <div class="col-sm-10">
-                                            <input type="number" class="form-control" placeholder="From" value="1">
+                            <div class="overlay-wrapper">
+                                <div class="overlay" v-show="loading"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                                    <div class="text-bold pt-2"></div>
+                                </div>
+                                <form class="form-horizontal">
+                                    <div class="card-body">
+                                        Get a random rumber between an interval
+                                        <div class="form-group row">
+                                            <div class="col-sm-10">
+                                                <input v-model="randomNumberFrom" type="number" class="form-control" placeholder="From">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-10">
+                                                <input v-model="randomNumberTo" type="number" class="form-control" placeholder="To">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-10">
-                                            <input type="number" class="form-control" placeholder="To" value="99">
-                                        </div>
+
+                                    <div class="card-footer">
+                                        <button type="submit" v-show="!loading" @click="" class="btn btn-info">Fetch</button>
+                                        <button type="submit" v-show="!loading" class="btn btn-danger float-right">Fetch With Error</button>
                                     </div>
-                                </div>
 
-                                <div class="card-footer">
-                                    <button type="submit" class="btn btn-info">Fetch</button>
-                                    <button type="submit" class="btn btn-danger float-right">Fetch With Error</button>
-                                </div>
-
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>

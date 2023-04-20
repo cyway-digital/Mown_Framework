@@ -2,10 +2,23 @@ const ChildComponent = {
     template: '#child-component',
     inject: ['doRequest','newAlert'],
     data() {
-        return {}
+        return {
+            controller: 'demo',
+            loading: false,
+            randomNumber: false,
+            randomNumberFrom: 1,
+            randomNumberTo: 99,
+        }
     },
     methods: {
-        getData() {}
+        getRandomNumber() {
+            this.loading = true
+
+            let data = this.doRequest('GET', this.$parent.appUrl + this.controller + '/randomNumber/' + this.randomNumberFrom + '/' + this.randomNumberTo);
+            data.then(a => {
+                this.randomNumber = a.result
+            }).catch(error => { })
+        },
     },
 }
 
