@@ -38,7 +38,7 @@ const ChildComponent = {
             let data = this.doRequest('GET', 'https://randomuser.me/api/');
             data.then(a => {
                 console.log(a)
-                this.randomPerson = a
+                this.randomPerson = a.results[0]
                 this.loading = false
             }).catch(error => {
                 this.loading = false
