@@ -25,14 +25,15 @@
                         <div class="card-body">
                             <form class="form-horizontal">
                                 <div class="card-body">
+                                    Get a random rumber between an interval
                                     <div class="form-group row">
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control" placeholder="From">
+                                            <input type="number" class="form-control" placeholder="From" value="1">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control" placeholder="To">
+                                            <input type="number" class="form-control" placeholder="To" value="99">
                                         </div>
                                     </div>
                                 </div>
