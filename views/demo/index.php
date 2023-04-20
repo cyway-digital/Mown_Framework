@@ -58,13 +58,30 @@
                 <div class="col-lg-6">
                     <div class="card card-success card-outline">
                         <div class="card-header">
-                            <h3 class="card-title">Fetch Some External data<small>From randomuser.me public API</small></h3>
+                            <h3 class="card-title">Fetch Some External data <small>From randomuser.me public API</small></h3>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body box-profile">
                             <div class="overlay-wrapper">
                                 <div class="overlay" v-show="loading"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
                                     <div class="text-bold pt-2"></div>
                                 </div>
+                                <div class="text-center" v-show="randomPerson">
+                                    <img class="profile-user-img img-fluid img-circle" :src="randomPerson.picture.medium" alt="User profile picture">
+                                </div>
+                                <h3 class="profile-username text-center">{{randomPerson.name.title}} {{randomPerson.name.first}} {{randomPerson.name.last}}</h3>
+                                <p class="text-muted text-center">{{randomPerson.location.city}} ({{randomPerson.location.state}} - {{randomPerson.location.country}})</p>
+                                <ul class="list-group list-group-unbordered mb-3">
+                                    <li class="list-group-item">
+                                        <b>E-mail</b> <a class="float-right">{{randomPerson.email}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Phone</b> <a class="float-right">{{randomPerson.phone}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Gender</b> <a class="float-right">{{randomPerson.gender}}</a>
+                                    </li>
+                                </ul>
+                                <h2>Raw data:</h2>
                                 <pre v-show="randomPerson">{{randomPerson}}</pre>
                             </div>
                         </div>
