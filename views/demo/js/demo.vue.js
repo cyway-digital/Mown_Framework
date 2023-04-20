@@ -8,6 +8,7 @@ const ChildComponent = {
             randomNumber: false,
             randomNumberFrom: 1,
             randomNumberTo: 99,
+            randomPerson: false
         }
     },
     methods: {
@@ -25,6 +26,19 @@ const ChildComponent = {
             data.then(a => {
                 console.log(a)
                 this.randomNumber = a.result
+                this.loading = false
+            }).catch(error => {
+                this.loading = false
+            })
+        },
+        getRandomPerson() {
+            this.loading = true
+            this.randomPerson = false
+
+            let data = this.doRequest('GET', 'https://randomuser.me/api/');
+            data.then(a => {
+                console.log(a)
+                this.randomPerson = a
                 this.loading = false
             }).catch(error => {
                 this.loading = false

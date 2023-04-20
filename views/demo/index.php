@@ -20,7 +20,7 @@
                 <div class="col-lg-6">
                     <div class="card card-success card-outline">
                         <div class="card-header">
-                            <h3 class="card-title">Fetch Some external data</h3>
+                            <h3 class="card-title">Fetch Some internal data</h3>
                         </div>
                         <div class="card-body">
                             <div class="overlay-wrapper">
@@ -50,9 +50,26 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </form>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card card-success card-outline">
+                        <div class="card-header">
+                            <h3 class="card-title">Fetch Some External data<small>From randomuser.me public API</small></h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="overlay-wrapper">
+                                <div class="overlay" v-show="loading"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                                    <div class="text-bold pt-2"></div>
+                                </div>
+                                <pre v-show="randomPerson">{{randomPerson}}</pre>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#!" v-show="!loading" @click="getRandomNumber(true)" class="btn btn-danger float-right">Fetch With Error</a>
                         </div>
                     </div>
                 </div>
