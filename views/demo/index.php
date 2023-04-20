@@ -59,6 +59,9 @@
                     <div class="card card-success card-outline">
                         <div class="card-header">
                             <h3 class="card-title">Fetch Some External data <small>From randomuser.me public API</small></h3>
+                            <div class="card-tools">
+                                <div class="btn btn-xs btn success" v-show="!loading" @click="getRandomPerson()">Fetch</div>
+                            </div>
                         </div>
                         <div class="card-body box-profile">
                             <div class="overlay-wrapper">
@@ -86,7 +89,8 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <a href="#!" v-show="!loading" @click="getRandomPerson()" class="btn btn-success float-right">Fetch</a>
+                            <h3>Raw data:</h3>
+                            <pre v-show="randomPerson">{{randomPerson}}</pre>
                         </div>
                     </div>
                 </div>
