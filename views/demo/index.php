@@ -69,7 +69,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <a href="#!" v-show="!loading" @click="getRandomNumber(true)" class="btn btn-danger float-right">Fetch With Error</a>
+                            <a href="#!" v-show="!loading" @click="getRandomPerson()" class="btn btn-success float-right">Fetch</a>
                         </div>
                     </div>
                 </div>
