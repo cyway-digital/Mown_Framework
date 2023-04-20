@@ -58,7 +58,7 @@ class Settings_Model extends Model
         return $this->db->update('users', $queryData, "id = " . $uid);
     }
 
-    public function addUser($mail, $firstname, $lastame, $username, $pwd, $salt)
+    public function addUser($mail, $firstname, $lastame, $pwd, $salt)
     {
         $queryData = array(
             ':name' => $firstname,
