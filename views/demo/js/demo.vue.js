@@ -15,11 +15,13 @@ const ChildComponent = {
             this.loading = true
             this.randomNumber = false
 
+            let url = this.$parent.appUrl + this.controller + '/randomNumber/' + this.randomNumberFrom + '/' + this.randomNumberTo;
+
             if (err) {
-                this.randomNumberFrom = ''
+                url = this.$parent.appUrl + this.controller + '/randomNumber/sample/' + this.randomNumberTo;
             }
 
-            let data = this.doRequest('GET', this.$parent.appUrl + this.controller + '/randomNumber/' + this.randomNumberFrom + '/' + this.randomNumberTo);
+            let data = this.doRequest('GET', url);
             data.then(a => {
                 console.log(a)
                 this.randomNumber = a.result

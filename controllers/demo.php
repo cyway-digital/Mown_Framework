@@ -19,6 +19,11 @@ class demo extends Controller {
     function randomNumber($from, $to) {
         $from = (int)trim(htmlspecialchars($from));
         $to = (int)trim(htmlspecialchars($to));
+
+        if (!is_numeric($from) || !is_numeric($to)) {
+            $this->jsonOutputError("wrong interval, check your inputs");
+        }
+
         $this->jsonOutput(['result' => rand($from,$to)]);
     }
 
