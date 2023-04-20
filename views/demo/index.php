@@ -23,9 +23,26 @@
                             <h3 class="card-title">Fetch Some data</h3>
                         </div>
                         <div class="card-body">
-                            <p class="card-text">
-                                Hey! :)
-                            </p>
+                            <form class="form-horizontal">
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" placeholder="From">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" placeholder="To">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-info">Fetch</button>
+                                    <button type="submit" class="btn btn-danger float-right">Fetch With Error</button>
+                                </div>
+
+                            </form>
                         </div>
                     </div>
                 </div>

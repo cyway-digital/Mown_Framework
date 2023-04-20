@@ -16,4 +16,10 @@ class demo extends Controller {
         $this->view->render('demo/index');
     }
 
+    function randomNumber($from, $to) {
+        $from = (int)trim(htmlspecialchars($from));
+        $to = (int)trim(htmlspecialchars($to));
+        $this->jsonOutput(['result' => rand($from,$to)]);
+    }
+
 }
