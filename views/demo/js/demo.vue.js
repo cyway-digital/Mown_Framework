@@ -1,6 +1,6 @@
 const ChildComponent = {
     template: '#child-component',
-    inject: ['doRequest','newAlert'],
+    inject: ['doRequest', 'newAlert', 'formatDate','formatCurrency'],
     data() {
         return {
             controller: 'demo',
