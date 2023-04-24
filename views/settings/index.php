@@ -29,6 +29,9 @@
                         <li class="nav-item">
                             <a class="nav-link" id="custom-tabs-system-info" data-toggle="pill" href="#custom-tabs-system-info-tab" role="tab" aria-controls="custom-tabs-system-info-tab" aria-selected="false">System Informations</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="custom-tabs-utils" data-toggle="pill" href="#custom-tabs-utils-tab" role="tab" aria-controls="custom-tabs-system-info-tab" aria-selected="false">Utils</a>
+                        </li>
                     <?php } ?>
                 </ul>
             </div>
