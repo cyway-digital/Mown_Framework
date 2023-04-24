@@ -27,4 +27,8 @@ class demo extends Controller {
         $this->jsonOutput(['result' => rand($from,$to)]);
     }
 
+    function getLogRotate() {
+        $this->jsonOutput($this->model->getLogRotate());
+    }
+
 }

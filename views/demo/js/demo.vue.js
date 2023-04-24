@@ -8,7 +8,8 @@ const ChildComponent = {
             randomNumber: false,
             randomNumberFrom: 1,
             randomNumberTo: 99,
-            randomPerson: false
+            randomPerson: false,
+            lastRotationDay: false
         }
     },
     methods: {
@@ -26,6 +27,21 @@ const ChildComponent = {
             data.then(a => {
                 console.log(a)
                 this.randomNumber = a.result
+                this.loading = false
+            }).catch(error => {
+                this.loading = false
+            })
+        },
+        getLastRotationDay() {
+            this.loading = true
+            this.lastRotationDay = false
+
+            let url = this.$parent.appUrl + this.controller + '/getLogRotate';
+
+            let data = this.doRequest('GET', url);
+            data.then(a => {
+                console.log(a)
+                this.lastRotationDay = a
                 this.loading = false
             }).catch(error => {
                 this.loading = false

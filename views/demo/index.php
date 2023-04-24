@@ -89,8 +89,35 @@
                             </div>
                         </div>
                         <div class="card-footer" v-show="randomPerson">
-                            <h3>Raw data:</h3>
+                            <h3>Raw data received:</h3>
                             <pre>{{randomPerson}}</pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card card-success card-outline">
+                        <div class="card-header">
+                            <h3 class="card-title">Fetch data from backend/DB</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="overlay-wrapper">
+                                <div class="overlay" v-show="loading"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                                    <div class="text-bold pt-2"></div>
+                                </div>
+                                <div class="card-body">
+                                    Get last date when logs has been rotated
+                                </div>
+                                <div class="card-footer">
+                                    <a href="#!" v-show="!loading" @click="getLastRotationDay()" class="btn btn-info">Fetch</a>
+                                    <div class="row" v-show="randomNumber">
+                                        <div class="col-12">
+                                            Our last Log Rotation day is {{randomNumber}}<br>
+                                            Format d/m/Y H:i -> {{formatDate(randomNumber,'MM/dd/yyyy T')}}
+                                            extra verbose localized date and time -> {{formatDate(randomNumber,'ffff')}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
