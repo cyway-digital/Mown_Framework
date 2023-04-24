@@ -21,7 +21,7 @@
                     <div class="col-lg-12">
                         <div class="card card-success card-outline">
                             <div class="card-header">
-                                <h3 class="card-title">Fetch Some internal data</h3>
+                                <h3 class="card-title">Fetch Some internal computed data</h3>
                             </div>
                             <div class="card-body">
                                 <div class="overlay-wrapper">
@@ -87,7 +87,7 @@
                 <div class="col-lg-6">
                     <div class="card card-success card-outline">
                         <div class="card-header">
-                            <h3 class="card-title">Fetch Some External data <small>From randomuser.me public API. Click "Fetch" ---></small></h3>
+                            <h3 class="card-title">Fetch directly some External data <small>From randomuser.me public API. Click "Fetch" ---></small></h3>
                             <div class="card-tools">
                                 <div class="btn btn-xs btn-success" v-show="!loading" @click="getRandomPerson()">Fetch</div>
                             </div>
