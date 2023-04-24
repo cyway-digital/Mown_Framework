@@ -224,6 +224,7 @@ class settings extends Controller
 
     function getRandomPassword() {
         Auth::handleRole(); //admins only here!
+        $this->handleRequest('GET');
 
         $pwd = $this->randomPassword();
         $pwdHashed = hash('sha512', $pwd);
