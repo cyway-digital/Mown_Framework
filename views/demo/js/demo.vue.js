@@ -41,7 +41,7 @@ const ChildComponent = {
             let data = this.doRequest('GET', url);
             data.then(a => {
                 console.log(a)
-                this.lastRotationDay = a
+                this.lastRotationDay = a.value
                 this.loading = false
             }).catch(error => {
                 this.loading = false
