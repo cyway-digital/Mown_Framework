@@ -40,8 +40,8 @@ class Settings_Model extends Model
         $objs = $this->db->select("id, name, surname, email, last_login, date_add, role, active FROM users", array(), 'fetchAll');
 
         foreach ($objs as $key => $value) {
-            $objs[$key]['date_add_iso'] = date('c', strtotime($objs[$key]['date_add']));
-            $objs[$key]['last_login_iso'] = date('c', strtotime($objs[$key]['last_login']));
+            $objs[$key]['date_add_iso'] = date('c', strtotime($objs[$key]['date_add'] ?? ''));
+            $objs[$key]['last_login_iso'] = date('c', strtotime($objs[$key]['last_login'] ?? ''));
         }
         return $objs;
     }
