@@ -226,11 +226,15 @@ class settings extends Controller
         Auth::handleRole(); //admins only here!
 
         $pwd = $this->randomPassword();
+        $pwdHashed = hash('sha512', $pwd);
+
+        $salt = hash('sha512', uniqid(openssl_random_pseudo_bytes(16), TRUE));
+        $password = hash('sha512', $pwdHashed . $salt);
 
         $this->jsonOutput([
             'clear_pwd' => $pwd,
-            'hash' => '',
-            'salt' => ''
+            'hash' => $password,
+            'salt' => $salt
         ]);
 
     }

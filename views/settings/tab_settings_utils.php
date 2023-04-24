@@ -5,7 +5,7 @@
             <div class="form-group">
                 <label for="" class="col-sm-9 control-label">Password</label>
                 <div class="col-sm-9">
-                    <input type="text" disabled :value="randomPassword?.pwd" style="width: 100%">
+                    <input type="text" disabled :value="randomPassword?.clear_pwd" style="width: 100%">
                 </div>
             </div>
             <div class="form-group">
