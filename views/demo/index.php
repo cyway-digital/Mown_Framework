@@ -18,39 +18,68 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="card card-success card-outline">
-                        <div class="card-header">
-                            <h3 class="card-title">Fetch Some internal data</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="overlay-wrapper">
-                                <div class="overlay" v-show="loading"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
-                                    <div class="text-bold pt-2"></div>
+                    <div class="col-lg-12">
+                        <div class="card card-success card-outline">
+                            <div class="card-header">
+                                <h3 class="card-title">Fetch Some internal data</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="overlay-wrapper">
+                                    <div class="overlay" v-show="loading"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                                        <div class="text-bold pt-2"></div>
+                                    </div>
+                                    <form class="form-horizontal">
+                                        <div class="card-body">
+                                            Get a random rumber between an interval
+                                            <div class="form-group row">
+                                                <div class="col-sm-10">
+                                                    <input v-model="randomNumberFrom" type="number" class="form-control" placeholder="From">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-10">
+                                                    <input v-model="randomNumberTo" type="number" class="form-control" placeholder="To">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <a href="#!" v-show="!loading" @click="getRandomNumber(false)" class="btn btn-info">Fetch</a>
+                                            <a href="#!" v-show="!loading" @click="getRandomNumber(true)" class="btn btn-danger float-right">Fetch With Error</a>
+                                            <div class="row" v-show="randomNumber">
+                                                <div class="col-12">
+                                                    Your random number is {{randomNumber}}! Try again?
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                                <form class="form-horizontal">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="card card-success card-outline">
+                            <div class="card-header">
+                                <h3 class="card-title">Fetch data from backend/DB</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="overlay-wrapper">
+                                    <div class="overlay" v-show="loading"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                                        <div class="text-bold pt-2"></div>
+                                    </div>
                                     <div class="card-body">
-                                        Get a random rumber between an interval
-                                        <div class="form-group row">
-                                            <div class="col-sm-10">
-                                                <input v-model="randomNumberFrom" type="number" class="form-control" placeholder="From">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-10">
-                                                <input v-model="randomNumberTo" type="number" class="form-control" placeholder="To">
-                                            </div>
-                                        </div>
+                                        Get last date when logs has been rotated (table "options")
                                     </div>
                                     <div class="card-footer">
-                                        <a href="#!" v-show="!loading" @click="getRandomNumber(false)" class="btn btn-info">Fetch</a>
-                                        <a href="#!" v-show="!loading" @click="getRandomNumber(true)" class="btn btn-danger float-right">Fetch With Error</a>
-                                        <div class="row" v-show="randomNumber">
+                                        <a href="#!" v-show="!loading" @click="getLastRotationDay()" class="btn btn-info">Fetch</a>
+                                        <div class="row" v-show="lastRotationDay">
                                             <div class="col-12">
-                                                Your random number is {{randomNumber}}! Try again?
+                                                Our last Log Rotation day is <strong>{{lastRotationDay}}</strong><br>
+                                                Format d/m/Y H:i -> <strong>{{formatDate(lastRotationDay,'MM/dd/yyyy T')}}</strong><br>
+                                                extra verbose localized date and time -> <strong>{{formatDate(lastRotationDay,'ffff')}}</strong>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -91,33 +120,6 @@
                         <div class="card-footer" v-show="randomPerson">
                             <h3>Raw data received:</h3>
                             <pre>{{randomPerson}}</pre>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card card-success card-outline">
-                        <div class="card-header">
-                            <h3 class="card-title">Fetch data from backend/DB</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="overlay-wrapper">
-                                <div class="overlay" v-show="loading"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
-                                    <div class="text-bold pt-2"></div>
-                                </div>
-                                <div class="card-body">
-                                    Get last date when logs has been rotated (table "options")
-                                </div>
-                                <div class="card-footer">
-                                    <a href="#!" v-show="!loading" @click="getLastRotationDay()" class="btn btn-info">Fetch</a>
-                                    <div class="row" v-show="lastRotationDay">
-                                        <div class="col-12">
-                                            Our last Log Rotation day is <strong>{{lastRotationDay}}</strong><br>
-                                            Format d/m/Y H:i -> <strong>{{formatDate(lastRotationDay,'MM/dd/yyyy T')}}</strong><br>
-                                            extra verbose localized date and time -> <strong>{{formatDate(lastRotationDay,'ffff')}}</strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
