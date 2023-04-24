@@ -125,6 +125,7 @@ class settings extends Controller
     public function addUser()
     {
         Auth::handleRole(); //admins only here!
+
         $data = $this->handleRequest('POST', [
             'firstName' => 'string',
             'lastName' => 'string',
@@ -146,6 +147,8 @@ class settings extends Controller
             ':param' => 'admin_user_added',
             ':text' => "added system User ".$data['email']
         ]);
+
+        // Send back plain password to use on the view
         $this->jsonOutput($pwd);
     }
 
@@ -217,6 +220,19 @@ class settings extends Controller
         ]);
 
         $this->jsonOutput([]);
+    }
+
+    function getRandomPassword() {
+        Auth::handleRole(); //admins only here!
+
+        $pwd = $this->randomPassword();
+
+        $this->jsonOutput([
+            'clear_pwd' => $pwd,
+            'hash' => '',
+            'salt' => ''
+        ]);
+
     }
 
     private function randomPassword($length = 10)

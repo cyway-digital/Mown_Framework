@@ -44,6 +44,9 @@
                         <div class="tab-pane fade" id="custom-tabs-system-info-tab" role="tabpanel" aria-labelledby="custom-tabs-system-info-tab">
                             <?php require_once 'tab_settings_info.php'; ?>
                         </div>
+                        <div class="tab-pane fade" id="custom-tabs-utils-tab" role="tabpanel" aria-labelledby="custom-tabs-utils-tab">
+                            <?php require_once 'tab_settings_utils.php'; ?>
+                        </div>
                     <?php } ?>
 
                 </div>

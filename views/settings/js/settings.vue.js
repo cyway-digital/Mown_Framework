@@ -14,6 +14,7 @@ const ChildComponent = {
             oldPwd: null,
             pwd1: null,
             pwd2: null,
+            randomPassword: false
         }
     },
     mounted() {
@@ -169,6 +170,11 @@ const ChildComponent = {
 
 
 
-        }
+        },
+        getRandomPassword() {
+            // fetch users
+            const prd = this.doRequest('GET', this.$parent.appUrl + this.controller + '/getRandomPassword');
+            prd.then(a => this.randomPassword = a).catch(error => { })
+        },
     }
 }
