@@ -113,7 +113,6 @@ class settings extends Controller
             $this->jsonOutputError("NOT updated. Retry");
         }
 
-//        $this->log->notice("User #" . Session::get('id') . " edited User #".$data['id']." data to: ".print_r($data,true));
         $this->dbLogs->addLog([
             ':severity' => 'NOTICE',
             ':user_id' => Session::get('id'),

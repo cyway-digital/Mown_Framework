@@ -31,14 +31,13 @@ class Mail
 
     }
 
-    function sendWelcome($recipient, $name, $username, $password)
+    function sendWelcome($recipient, $name, $password)
     {
         $subject = "Benvenuto in " . SYS_NAME;
 
         //Plain message
         $altBody = file_get_contents('views/templates/email/plain/welcomeUser.tpl');
         $altBody = str_replace("{:URL:}", URL . "login", $altBody);
-        $altBody = str_replace("{:USERNAME:}", $username, $altBody);
         $altBody = str_replace("{:NAME:}", $name, $altBody);
         $altBody = str_replace("{:PWD:}", $password, $altBody);
         $altBody = str_replace("{:EMAIL:}", $recipient, $altBody);

@@ -1,7 +1,7 @@
 Ciao {:NAME:}!
 Un amministratore ha creato per te un utente in {:SYS_NAME:}.
 
-Utente: {:USERNAME:}
+Utente: {:EMAIL:}
 Password: {:PWD:}
 
 Accedi qui: {:URL:}

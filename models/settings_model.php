@@ -46,7 +46,7 @@ class Settings_Model extends Model
         return $objs;
     }
 
-    public function editUser($uid, $name, $lastName, $userName, $email, $role)
+    public function editUser($uid, $name, $lastName, $email, $role)
     {
         $queryData = array(
             'email' => $email,
