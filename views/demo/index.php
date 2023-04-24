@@ -109,11 +109,11 @@
                                 </div>
                                 <div class="card-footer">
                                     <a href="#!" v-show="!loading" @click="getLastRotationDay()" class="btn btn-info">Fetch</a>
-                                    <div class="row" v-show="randomNumber">
+                                    <div class="row" v-show="lastRotationDay">
                                         <div class="col-12">
-                                            Our last Log Rotation day is {{randomNumber}}<br>
-                                            Format d/m/Y H:i -> {{formatDate(randomNumber,'MM/dd/yyyy T')}}
-                                            extra verbose localized date and time -> {{formatDate(randomNumber,'ffff')}}
+                                            Our last Log Rotation day is {{lastRotationDay}}<br>
+                                            Format d/m/Y H:i -> {{formatDate(lastRotationDay,'MM/dd/yyyy T')}}
+                                            extra verbose localized date and time -> {{formatDate(lastRotationDay,'ffff')}}
                                         </div>
                                     </div>
                                 </div>
