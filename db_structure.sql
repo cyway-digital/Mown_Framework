@@ -23,6 +23,29 @@ INSERT INTO `options` VALUES (1,'LOG_ROTATE_DATE','2018-06-06 23:06:36'),(18,'EM
 /*!40000 ALTER TABLE `options` ENABLE KEYS */;
 UNLOCK TABLES;
 
+
+--
+-- Table structure for table `events_log`
+--
+DROP TABLE IF EXISTS `events_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `events_log` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `date_add` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `severity` varchar(255) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `customer_id` int(11) DEFAULT NULL,
+  `param` varchar(255) DEFAULT NULL,
+  `from_val` text,
+  `to_val` text,
+  `text` text,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  KEY `customer_id` (`customer_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 --
 -- Table structure for table `users`
 --
@@ -57,4 +80,3 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-21 23:36:05

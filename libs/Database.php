@@ -82,7 +82,7 @@ class Database extends PDO
         if ($this->debug) $this->debug(__METHOD__,func_get_args(),debug_backtrace());
 		ksort($data);
 		
-		$fieldNames = str_replace(':', null, implode(', ', array_keys($data)));
+		$fieldNames = str_replace(':', '', implode(', ', array_keys($data)));
 		$fieldValues = implode(', ', array_keys($data));
 		$sth = $this->prepare("INSERT INTO $table ($fieldNames) VALUES ($fieldValues)");
 		
