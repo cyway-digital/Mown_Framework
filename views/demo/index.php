@@ -105,15 +105,15 @@
                                     <div class="text-bold pt-2"></div>
                                 </div>
                                 <div class="card-body">
-                                    Get last date when logs has been rotated
+                                    Get last date when logs has been rotated (table "options")
                                 </div>
                                 <div class="card-footer">
                                     <a href="#!" v-show="!loading" @click="getLastRotationDay()" class="btn btn-info">Fetch</a>
                                     <div class="row" v-show="lastRotationDay">
                                         <div class="col-12">
-                                            Our last Log Rotation day is {{lastRotationDay}}<br>
-                                            Format d/m/Y H:i -> {{formatDate(lastRotationDay,'MM/dd/yyyy T')}}
-                                            extra verbose localized date and time -> {{formatDate(lastRotationDay,'ffff')}}
+                                            Our last Log Rotation day is <strong>{{lastRotationDay}}</strong><br>
+                                            Format d/m/Y H:i -> <strong>{{formatDate(lastRotationDay,'MM/dd/yyyy T')}}</strong><br>
+                                            extra verbose localized date and time -> <strong>{{formatDate(lastRotationDay,'ffff')}}</strong>
                                         </div>
                                     </div>
                                 </div>
