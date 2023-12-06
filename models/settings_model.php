@@ -82,7 +82,7 @@ class Settings_Model extends Model
         );
         $this->db->update('users', $queryData, "id = '$userID'");
 
-        return $this->db->select('name, email FROM users WHERE id= "' . $userID . '"', array(), 'fetch', PDO::FETCH_ASSOC);
+        return $this->db->select("name, email FROM users WHERE id= '$userID'", array(), 'fetch', PDO::FETCH_ASSOC);
     }
 
     public function getMysqlVer()
